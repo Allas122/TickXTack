@@ -1,0 +1,21 @@
+<template>
+    <div>
+        <svg width="190px" height="190px" viewBox="0 0 100 100">
+            <circle r="40px" cx="50" cy="50" fill="none" stroke-width="10px" stroke="white">
+                <animate
+                attributeName="stroke-width"
+                from="0px"
+                to="10px"
+                dur="0.5s"
+                />    
+            </circle>
+        </svg>
+    </div>
+</template>
+
+<script setup>
+</script>
+
+<style lang="scss" scoped>
+
+</style>
