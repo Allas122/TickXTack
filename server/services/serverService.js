@@ -12,7 +12,7 @@ class ServerService {
         return server;
     }
     static async getAllServices(skip) {
-        var server = await serverPlane_1.serverPlaneModel.find({}, {}, { sort: { 'created_at': -1 }, skip, limit: 10 });
+        var server = await serverPlane_1.serverPlaneModel.find({}, {}, { sort: { 'created_at': -1 }, skip, limit: 8 });
         return server;
     }
 }
