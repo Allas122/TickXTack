@@ -10,7 +10,7 @@ export class ServerService{
         return server
     }
     static async getAllServices(skip:number){
-        var server = await serverPlaneModel.find({},{},{sort:{'created_at':-1},skip,limit:10})
+        var server = await serverPlaneModel.find({},{},{sort:{'created_at':-1},skip,limit:8})
         return server
     }
 }

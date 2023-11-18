@@ -2,7 +2,7 @@ import fastify from "fastify";
 import "./Config"
 import { Connection } from "./mongoDB";
 import { addAllRoutes } from "./routes";
-import { addAllPlugins } from "./extensions";
+import { addAllPlugins } from "./plugins";
 var server = fastify()
 
 server.register(addAllRoutes)
