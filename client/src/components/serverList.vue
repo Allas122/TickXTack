@@ -1,29 +1,42 @@
 <template>
-    <div>
-
+  <div id="list">
+    <h1>Server List</h1>
+    <div id = "inner">
+        <serverPlane v-bind:data="data"
+        v-for="data in state.res"/>
     </div>
+  </div>
 </template>
 
-<script>
-import { onMounted, reactive, toRefs } from 'vue'
-import hubApi from "./services/hubApi"
-export default {
-    setup () {
-        const state = reactive({
-            res:Object,
-        })
-        onMounted(()=>{
-            setInterval(hubApi.getServerList(state.res,0),500).then(()=>{
-                console.log("Low pulling is start!")
-            })
-        })
-        return {
-            ...toRefs(state),
-        }
-    }
-}
+<script setup>
+import { onMounted, reactive, toRefs } from "vue";
+import hubApi from "./services/hubApi";
+import serverPlane from "./ui/serverPlane.vue"
+const state = reactive({
+    res:{},
+});
+hubApi.getServerList.bind(this)
+onMounted(() => {
+    setInterval(()=>{hubApi.getServerList(0).then((res)=>{state.res = res.data})},500)
+});
+
 </script>
 
 <style lang="scss" scoped>
-
+#list{
+    width: 200px;
+    height: 100%;
+    background-color: black;
+    border-right: white 3px solid;
+    h1{
+        color: aliceblue;
+        justify-content: center;
+        display: flex;
+        border-bottom: 3px solid white;
+    }
+    #inner{
+        display: flex;
+        flex-direction:column;
+    }
+}
 </style>

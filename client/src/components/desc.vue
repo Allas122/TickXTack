@@ -56,8 +56,7 @@ export default {
 
         }
         onMounted(() => {
-          setInterval(checkWinner,500)
-          console.log(state.places)  
+          setInterval(checkWinner,500)  
         })
         return {
             ...toRefs(state),
