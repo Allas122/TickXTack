@@ -1,9 +1,9 @@
 <template>
     <div id = "place" @click="$emit('clickOnPlace',position)">
-        <div id="chrest" v-if="state == '1'">
+        <div id="chrest" v-if="state == 1">
             <Chrest/>
         </div>
-        <div id="circle" v-else-if="state == '-1'">
+        <div id="circle" v-else-if="state == -1">
             <Circle/>
         </div>
         <div v-else/>
@@ -13,8 +13,9 @@
 <script setup>
 import {defineProps,reactive, toRefs } from 'vue'
 import Chrest from '../assets/Chrest.vue';
-import Circle from '../assets/Circle.vue'
+import Circle from '../assets/Circle.vue';
 defineProps({state:String,position:{x:Number,y:Number}})
+
 </script>
 
 <style lang="scss" scoped>
