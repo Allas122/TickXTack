@@ -33,6 +33,9 @@ onMounted(() => {
         justify-content: center;
         display: flex;
         border-bottom: 3px solid white;
+        height: 40px;
+        margin: 0;
+        padding: 0;
     }
     #inner{
         display: flex;

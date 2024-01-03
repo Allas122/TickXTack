@@ -11,18 +11,17 @@
 </template>
 
 <script setup>
-import {defineProps,reactive, toRefs } from 'vue'
+import {defineProps} from 'vue'
 import Chrest from '../assets/Chrest.vue';
-import Circle from '../assets/Circle.vue';
-defineProps({state:String,position:{x:Number,y:Number}})
-
+import Circle from '../assets/Circle.vue'
+defineProps({state:Number,position:{x:Number,y:Number}})
 </script>
 
 <style lang="scss" scoped>
 #place{
-    width: 190px;
-    height: 190px;
-    border: 5px solid white;
+    width: 195px;
+    height: 195px;
+    border: 2px solid white;
 }
 .figure{
     width: 100px;
