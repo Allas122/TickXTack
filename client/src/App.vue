@@ -28,6 +28,5 @@ addIcons(BiGithub)
   background-color: #161a1d;
   font-family: "Oswald", sans-serif;
   color: white;
-
 }
 </style>

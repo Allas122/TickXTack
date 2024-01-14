@@ -16,4 +16,12 @@ export class AuthService{
                 {userId,code:generateRandomString({length:6,charSetType:CharacterSetType.Alphanumeric})}
         })
     }
+    async ValidateCode(CodeId:number,Code:String){
+        try {
+            const valid = await this.PrismaService.authCodes.findUnique({where:{id:CodeId}})
+            return valid.code == Code;
+        }catch(e){
+
+        }
+    }
 }

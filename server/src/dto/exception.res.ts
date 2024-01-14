@@ -2,7 +2,7 @@ import {ApiProperty} from "@nestjs/swagger";
 
 export class ExceptionResponceDto{
     @ApiProperty()
-    code: number
+    status: number
     @ApiProperty()
     description:string
 }

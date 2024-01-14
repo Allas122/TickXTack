@@ -6,12 +6,13 @@ import {CreateUserDto} from "../dto/user/user.registration.body";
 import {AuthService} from "../auth/auth.service";
 import {LoginUserDto} from "../dto/user/user.login.body";
 import {ExceptionResponceDto} from "../dto/exception.res";
+import {DBtoolsService} from "../services/DBtools.service";
 @Controller("users")
 @ApiTags("/users")
 @ApiExtraModels(ExceptionResponceDto)
 @ApiResponse({status:200,schema:{$ref: getSchemaPath(ExceptionResponceDto)},description:"This is an exception type"})
 export class UserController{
-    constructor(private userService:UserService,private authService:AuthService) {}
+    constructor(private userService:UserService,private authService:AuthService,private DBTools : DBtoolsService) {}
     @Post("/registration")
 
     async registration(@Body() body : CreateUserDto,Reply:FastifyReply){
@@ -20,12 +21,7 @@ export class UserController{
             const code = await this.authService.GenerateCode(user.id)
             return code.id;
         }catch (e){
-            switch (e.code){
-                case "P2002":
-                    return {status:400,description:"Unique constraint error"}
-                default:
-                    return {status:403,description:"Eternal server error"}
-            }
+            return this.DBTools.CatchWithStatus(e)
         }
     }
     @Post("/login")
